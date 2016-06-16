@@ -56,8 +56,11 @@ Still, this is now possible:
       </body>
     </html>
 
-`jquery-angular-shim` will save any original AngularJS instance inside
-`window.__jquery_angular_shim__.originalAngular`
+`jquery-angular-shim` will save any:
+ - original AngularJS instance inside
+   `window.__jquery_angular_shim__.originalAngular`
+ - original jQuery instance inside
+   `window.__jquery_angular_shim__.originalJQuery`
 
 You can restore it at the end of your bundle in order not to bother the
 rest of the host webpage too much.
