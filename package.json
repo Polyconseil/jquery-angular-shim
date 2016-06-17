@@ -2,6 +2,9 @@
   "name": "jquery-angular-shim",
   "version": "0.0.1",
   "main": "bundle.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
     "angular": "~1.5.3",
     "jquery": "^2.2.4"
