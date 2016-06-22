@@ -5,24 +5,11 @@ Reusable, requirable Angular library.
 
 The modules may be imported using an `import` or `require` syntax.
 
-A better implementation, later, would be to allow various
-jquery_angular_shims, namespaced for every app.
-
-The issue is that we cannot easily configure this from the app; code like:
-
-.. code-block:: javascript
-
-    window.__jquery_angular_shim_params__ = {
-        'name': 'my_app',
-        'restoreAngular': false,
-    }
+.. code-block:: javascript 
 
     import angular from 'jquery-angular-shim'
 
-does not work since the resulting Webpack bundle will load the dependencies
-before executing line 1. Ideas welcome.
-
-Still, this is now possible:
+Bootstrapping a local application is now possible:
 
 .. code-block:: html
 
@@ -57,10 +44,10 @@ Still, this is now possible:
     </html>
 
 `jquery-angular-shim` will save any:
- - original AngularJS instance inside
-   `window.__jquery_angular_shim__.originalAngular`
- - original jQuery instance inside
-   `window.__jquery_angular_shim__.originalJQuery`
+ - original AngularJS instance inside 
+    `window.__jquery_angular_shim__.originalAngular`
+ - original jQuery instance inside 
+    `window.__jquery_angular_shim__.originalJQuery`
 
 You can restore it at the end of your bundle in order not to bother the
 rest of the host webpage too much.
@@ -76,3 +63,24 @@ to edit your webpack configuration as such::
     }
   }
 
+
+Target implementation (future)
+------------------------------
+
+A better implementation, later, would be to allow various
+jquery_angular_shims, namespaced for every app.
+
+The issue is that we cannot easily configure this from the app; code like:
+
+.. code-block:: javascript
+
+    // With es6 imports, this is executed after the code of the imports and will not work as expected
+    window.__jquery_angular_shim_params__ = {
+        'name': 'my_app',
+        'restoreAngular': false,
+    }
+
+    import angular from 'jquery-angular-shim'
+
+does not work since the resulting Webpack bundle will load the dependencies
+before executing line 1. Ideas welcome.
