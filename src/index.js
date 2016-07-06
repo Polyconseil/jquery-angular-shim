@@ -5,6 +5,7 @@ function load () {
     var originalAngular = window.angular
 
     var jQuery = require('jquery')
+    window.jQuery = jQuery                // needed by some libraries, we do not want to explicitly require jQuery
     window.angular = null                 // trick angular into loading itself and not just return the global one.
     var angular = require('angular')
     window.__jquery_angular_shim__ = {
